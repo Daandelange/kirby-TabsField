@@ -4,7 +4,7 @@
   "type": "kirby-plugin",
   "license": "MIT",
   "homepage": "https://github.com/daandelange/kirby-tabsfield",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     {
       "name": "Daan de Lange",
@@ -24,5 +24,10 @@
   },
   "extra": {
     "installer-name": "tabsfield"
+  },
+  "config": {
+    "allow-plugins": {
+      "getkirby/composer-installer": true
+    }
   }
 }

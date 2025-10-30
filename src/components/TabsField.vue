@@ -8,7 +8,7 @@
 
 // Fixme : localstorage item should not be only the field name, but also the page uid/path/model ?
 
-import { usePanel } from "kirbyuse";
+import { usePanel, useContent } from "kirbyuse";
 
 export default {
   name: 'k-tabs-field',
@@ -130,13 +130,19 @@ export default {
       // If it breaks: See kirby/panel/src/panel/content.js @ change()
       //panel.view.props.originals[this.$attrs.name]=panel.view.props.content[this.$attrs.name]; // K5, way simpler ! :)
 
-      const panel = usePanel();
-      // K5-beta6 way ?
+      // K5-beta6 way
       if(panel.view.props.originals){
+        const panel = usePanel();
         panel.view.props.originals[[this.$attrs.name]] = panel.view.props.content[this.$attrs.name]; 
       }
       else { // k5 way
-        panel.content.version("latest")[this.$attrs.name] = panel.content.version("changes")[this.$attrs.name];
+        const content = useContent();
+        //console.log("Content=", content);
+        //content.update({[this.$attrs.name] : content.currentContent.value[this.$attrs.name]}, false); // no works !
+        //content.current[this.$attrs.name] = content.currentContent[this.$attrs.name]; // noworks ! (read-only?)
+        content.content.version("latest")[this.$attrs.name] = content.content.version("changes")[this.$attrs.name];
+        //const panel = usePanel();
+        //panel.content.version("latest")[this.$attrs.name] = panel.content.version("changes")[this.$attrs.name]; // works
       }
     },
     getTabFromLocalStorage(){

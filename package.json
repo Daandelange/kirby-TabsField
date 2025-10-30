@@ -1,6 +1,6 @@
 {
   "name": "TabsField",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tabs field for the panel, to use with `when` conditions in field and section blueprints.",
   "main": "index.js",
   "author": "Daan de Lange",

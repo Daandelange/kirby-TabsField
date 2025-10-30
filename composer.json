@@ -4,7 +4,7 @@
   "type": "kirby-plugin",
   "license": "MIT",
   "homepage": "https://github.com/daandelange/kirby-tabsfield",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "authors": [
     {
       "name": "Daan de Lange",
